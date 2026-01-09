@@ -2,6 +2,52 @@
 // FAMEIQ – shared behavior for all pages
 // Clean, conflict-free, responsive-safe
 
+
+
+/* =========================================
+   GLOBAL SAFE RESIZE GUARD (TOUCH DEVICES)
+   Prevents animation refresh on scroll
+========================================= */
+
+const SafeViewport = (() => {
+  let lastWidth = window.innerWidth;
+  let lastHeight = window.innerHeight;
+
+  function isRealResize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const widthChanged = Math.abs(w - lastWidth) > 80;
+    const heightChanged = Math.abs(h - lastHeight) > 120;
+
+    lastWidth = w;
+    lastHeight = h;
+
+    return widthChanged || heightChanged;
+  }
+
+  return {
+    onResize(callback) {
+      window.addEventListener(
+        "resize",
+        () => {
+          // Ignore scroll-induced resize on touch devices
+          const isTouch =
+            "ontouchstart" in window ||
+            navigator.maxTouchPoints > 0;
+
+          if (isTouch && !isRealResize()) return;
+
+          callback();
+        },
+        { passive: true }
+      );
+    }
+  };
+})();
+
+
+
 (() => {
   "use strict";
 
@@ -141,12 +187,6 @@
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
-
-
-
-
-
-
 
 
 /* =========================================
@@ -988,7 +1028,10 @@ function isTooClose(x, y, r, existing) {
     });
   }
 
-  window.addEventListener("resize", resize);
+  SafeViewport.onResize(() => {
+  resize();
+});
+
 
   /* ===============================
      INPUT
@@ -1172,16 +1215,24 @@ function isTooClose(x, y, r, existing) {
 
   initBirds();
 
-  window.addEventListener("resize", () => {
+  SafeViewport.onResize(() => {
+  if (vantaEffect) {
+    vantaEffect.destroy();
+    vantaEffect = null;
+  }
+  initBirds();
+});
+})();
+
+window.addEventListener("orientationchange", () => {
+  setTimeout(() => {
     if (vantaEffect) {
       vantaEffect.destroy();
       vantaEffect = null;
     }
     initBirds();
-  });
-
-})();
-
+  }, 300);
+});
 
 
 
