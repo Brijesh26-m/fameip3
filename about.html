@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-
   <title>About — FAMEIQ</title>
   <link rel="stylesheet" href="style.css" />
   <script src="main.js" defer></script>
 </head>
+
 <body data-page="about">
-  <!--3d blobs sliver and golden-->
+
+  <!-- 3D background canvas -->
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
+  <!-- Cursor splash zones -->
+  <div class="cursor-zone hero-zone" data-splash="#ffd900"></div>
+  <div class="cursor-zone values-zone" data-splash="#5ddcff"></div>
+  <div class="cursor-zone process-zone" data-splash="#ff6ad5"></div>
+  <div class="cursor-zone footer-zone" data-splash="#6aff9f"></div>
 
-  
-
-<!-- Cursor splash zones (NO layout impact) -->
-<div class="cursor-zone hero-zone" data-splash="#ffd900"></div>
-<div class="cursor-zone values-zone" data-splash="#5ddcff"></div>
-<div class="cursor-zone process-zone" data-splash="#ff6ad5"></div>
-<div class="cursor-zone footer-zone" data-splash="#6aff9f"></div>
-
-
-
-
-
-
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="FAMEIQ — Home">
         <img src="logo.png" alt="FAMEIQ" class="brand-logo" />
       </a>
+
       <nav class="nav" aria-label="Primary navigation">
         <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="nav-toggle-line"></span>
           <span class="nav-toggle-line"></span>
         </button>
+
         <ul class="nav-links">
           <li><a href="about.html" class="is-active">About</a></li>
           <li><a href="process.html">Process</a></li>
@@ -48,20 +44,23 @@
     </div>
   </header>
 
+  <!-- Background Orbs -->
   <div class="background-layer" aria-hidden="true">
     <canvas id="bgCanvas"></canvas>
     <div class="orb orb-left"></div>
     <div class="orb orb-right"></div>
   </div>
 
+  <!-- Main Content -->
   <main class="page">
     <section class="section about-section" aria-labelledby="about-title">
       <div class="container section-header reveal-up">
         <p class="eyebrow">About us</p>
-        <h2 id="about-title">A creative digital partner for forward‑thinking brands.</h2>
+        <h2 id="about-title">A creative digital partner for forward-thinking brands.</h2>
         <p class="section-intro">
-          FAMEIQ is a compact, multidisciplinary team that blends strategic
-          thinking, expressive visuals and purposeful technology.
+          FAMEIQ was built to solve the problem of high marketing costs with low efficiency by using AI and automation.
+          <br />
+          Industry-based professionals with long-term experience in digital marketing and algorithm monitoring.
         </p>
       </div>
 
@@ -69,36 +68,35 @@
         <article class="why-card glass reveal-up">
           <h3>Our Mission</h3>
           <p>
-            To help brands unlock their next stage of growth through experiences
-            that feel intuitive, inspiring and distinctly theirs.
+            Empower brands with AI-driven marketing systems for organic growth.
           </p>
         </article>
 
         <article class="why-card glass reveal-up" style="--delay:0.08s">
-          <h3>Who We Are</h3>
+          <h3>Our Vision</h3>
           <p>
-            Designers, technologists and storytellers with a shared obsession
-            for craft, clarity and performance.
+            Become a leading AI-first marketing agency redefining online growth.
           </p>
         </article>
 
         <article class="why-card glass reveal-up" style="--delay:0.16s">
           <h3>Our Values</h3>
           <p>
-            Radical collaboration, thoughtful experimentation and a deep respect
-            for the details that make brands feel alive.
+            Transparency, performance, automation, and long-term growth.
           </p>
         </article>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <span class="brand-text">FAMEIQ</span>
-        <p>Creative digital studio for brands ready to stand out.</p>
+        <p>Growth with Algorithm.</p>
       </div>
+
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -106,26 +104,26 @@
         <a href="why-us.html">Why us</a>
         <a href="contact.html">Contact</a>
       </nav>
+
       <div class="footer-meta">
         <a href="mailto:hello@fameiq.studio">hello@fameiq.studio</a>
         <span>© <span id="year"></span> FAMEIQ Studio</span>
       </div>
     </div>
+
     <div class="background-layer" aria-hidden="true"></div>
-
   </footer>
-<!-- Plus Menu -->
-<div id="plusMenuRoot">
-  <button id="plusToggle" aria-label="Open menu">+</button>
 
-  <div id="plusMenu">
-    <a href="index.html">Home</a>
-    <a href="process.html">Process</a>
-    <a href="why-us.html">Why Us</a>
-    <a href="contact.html">Contact</a>
+  <!-- Plus Menu -->
+  <div id="plusMenuRoot">
+    <button id="plusToggle" aria-label="Open menu">+</button>
+    <div id="plusMenu">
+      <a href="index.html">Home</a>
+      <a href="process.html">Process</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-</div>
-
 
 </body>
 </html>
