@@ -3264,25 +3264,29 @@ body[data-page="contact"] .scroll-illusion-bg {
   filter: blur(10px);
 }
 
-/* Portfolio Button Position */
+/* Portfolio Button Wrapper */
 .portfolio-btn-wrap {
-  margin-top: 48px; /* pushes button down */
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
 }
 
-/* Glow Effect */
+/* Button Glow */
 .portfolio-glow {
   position: relative;
+  padding: 14px 28px;
+  border-radius: 999px;
   box-shadow:
-    0 0 20px rgba(255, 217, 0, 0.45),
-    0 0 40px rgba(255, 255, 255, 0.25);
-  transition: all 0.3s ease;
+    0 0 18px rgba(255, 217, 0, 0.45),
+    0 0 36px rgba(255, 255, 255, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover Enhancement */
+/* Hover */
 .portfolio-glow:hover {
   box-shadow:
-    0 0 28px rgba(255, 217, 0, 0.65),
-    0 0 60px rgba(255, 255, 255, 0.35);
+    0 0 26px rgba(255, 217, 0, 0.65),
+    0 0 52px rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
